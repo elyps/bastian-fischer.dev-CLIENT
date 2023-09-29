@@ -1,0 +1,111 @@
+<div id="app">
+  <div class="top-container">
+
+    <div class="d-flex justify-content-between mx-auto px-3 bg-prime">
+      <span class=""><small>www.bastian-fischer.dev</small></span>
+      <span class=""></span>
+      <span class=""><small>Project on your mind? <strong>kontakt(at)bastian-fischer(dot)com</strong></small></span>
+    </div>
+
+  </div>
+  <nav class="navbar navbar-expand shadow-sm fixed-top mt-4" style="border-bottom: 1px solid #7d39e0">
+    <img src="assets/img/me.png" alt="Firmenlogo" class="rounded-circle mr-3" style="width: 50px; height: 50px;">
+    <a href="#" class="navbar-brand font-weight-bold">elyps.</a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/home" class="nav-link" routerLink="home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="/about-me" class="nav-link" routerLink="about-me">About Me</a>
+      </li>
+      <li class="nav-item">
+        <a href="/articles" class="nav-link" routerLink="articles" >Articles</a>
+      </li>
+      <li class="nav-item">
+        <a href="/projects" class="nav-link" routerLink="projects">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a href="/contact" class="nav-link" routerLink="contact">Contact</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a href="/recruiter" class="nav-link" routerLink="recruiter">Recruiter</a>
+      </li> -->
+
+      <!--<li class="nav-item">
+        <a routerLink="add" class="nav-link" *ngIf="showActions">Add</a>
+      </li>-->
+      <!--<li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+      </li>
+      <li class="nav-item" *ngIf="showModeratorBoard">
+        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+      </li>
+      <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User Board</a>
+      </li>-->
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <button (click)="toggleDarkMode()" class="btn text-warning border-0 mt-1 mr-1">
+          <i [class]="darkMode ? 'bi-sun-fill' : 'bi-moon-fill'" class="h5"></i>
+          <!--          <input class="btn-prime-ghost" [value]="darkMode ? 'Darkmode' : 'Lightmode'">-->
+        </button>
+      </li>
+      <li class="nav-item">
+        <a href="/register" class="nav-link" routerLink="register">Register</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <!--<li class="nav-item">
+          <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+      </li>-->
+
+      <li class="nav-item">
+        <button (click)="toggleDarkMode()" class="btn text-warning border-0 mt-1 mr-1">
+          <i [class]="darkMode ? 'bi-sun-fill' : 'bi-moon-fill'" class="h5"></i>
+          <!--          <input class="btn-prime-ghost" [value]="darkMode ? 'Darkmode' : 'Lightmode'">-->
+        </button>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          {{ username }}
+        </a>
+        <div class="dropdown-menu ml--5" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/profile" routerLink="profile">Profile</a>
+          <a class="dropdown-item" href="/settings">Settings</a>
+          <a class="dropdown-item" href="/admin" routerLink="admin" *ngIf="showAdminBoard">Admin Board</a>
+          <a class="dropdown-item" href="/mod" routerLink="mod" *ngIf="showModeratorBoard">Moderator Board</a>
+          <a class="dropdown-item" href="/user" routerLink="user" *ngIf="isLoggedIn">User Board</a>
+          <!--              <div class="dropdown-divider"></div>-->
+          <div class="p-2">
+            <button type="button" class="btn btn-danger btn-block" (click)="logout()">Logout</button>
+          </div>
+          <!--<div class="bg-danger p-2">
+            <a class="dropdown-item text-white" (click)="logout()">Logout</a>
+          </div>-->
+        </div>
+      </li>
+      <!--<li class="nav-item">
+          <a href class="nav-link" (click)="logout()">Logout</a>
+      </li>-->
+    </ul>
+  </nav>
+
+  <div class="main-content mt-5"
+       [style.background-color]="darkMode ? 'var(--background-color)' : 'var(--background-color)'"
+       [style.color]="darkMode ? 'var(--text-color)' : 'var(--text-color)'">
+    <app-article-details></app-article-details>
+    <router-outlet></router-outlet>
+  </div>
+
+  <app-footer></app-footer>
+
+
+</div>

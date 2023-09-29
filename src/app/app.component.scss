@@ -1,0 +1,47 @@
+.top-container {
+  position: fixed;
+  height: auto;
+  width: 100%;
+  background-color: rgba(99, 27, 204, 0.64);
+  color: #fff;
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.dropdown-menu {
+  background-color: var(--background-color-ui);
+  color: var(--text-color) !important;
+}
+
+.dropdown-item {
+  color: var(--text-color) !important;
+}
+
+.dropdown-item:hover {
+  background-color: var(--background-color);
+  color: var(--text-color) !important;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+}
+
+.main-content {
+  flex: 1; /* Allow the main content to grow and take remaining space */
+  padding-bottom: 100px; /* Adjust this value to match the height of your footer */
+  overflow-y: auto; /* Add scroll if content overflows */
+}
+
+app-footer {
+  position: relative;
+  bottom: 0;
+  background-color: var(--background-color-ui); /* Adjust the background color as needed */
+  padding: 20px; /* Adjust the padding as needed */
+  border-top: 1px solid var(--prime); /* Add a border at the top of the footer if desired */
+  color: var(--text-color);
+}
