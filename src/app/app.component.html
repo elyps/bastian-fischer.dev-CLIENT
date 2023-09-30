@@ -27,29 +27,12 @@
       <li class="nav-item">
         <a href="/contact" class="nav-link" routerLink="contact">Contact</a>
       </li>
-      <!-- <li class="nav-item">
-        <a href="/recruiter" class="nav-link" routerLink="recruiter">Recruiter</a>
-      </li> -->
-
-      <!--<li class="nav-item">
-        <a routerLink="add" class="nav-link" *ngIf="showActions">Add</a>
-      </li>-->
-      <!--<li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-      </li>
-      <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
-      </li>
-      <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User Board</a>
-      </li>-->
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
-        <button (click)="toggleDarkMode()" class="btn text-warning border-0 mt-1 mr-1">
+        <button (click)="toggleDarkMode()" title="Toggle Dark Mode" class="btn text-warning border-0 mt-1 mr-1">
           <i [class]="darkMode ? 'bi-sun-fill' : 'bi-moon-fill'" class="h5"></i>
-          <!--          <input class="btn-prime-ghost" [value]="darkMode ? 'Darkmode' : 'Lightmode'">-->
         </button>
       </li>
       <li class="nav-item">
@@ -61,14 +44,10 @@
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <!--<li class="nav-item">
-          <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-      </li>-->
 
       <li class="nav-item">
-        <button (click)="toggleDarkMode()" class="btn text-warning border-0 mt-1 mr-1">
+        <button (click)="toggleDarkMode()" title="Toggle Dark Mode" class="btn text-warning border-0 mt-1 mr-1">
           <i [class]="darkMode ? 'bi-sun-fill' : 'bi-moon-fill'" class="h5"></i>
-          <!--          <input class="btn-prime-ghost" [value]="darkMode ? 'Darkmode' : 'Lightmode'">-->
         </button>
       </li>
 
@@ -83,18 +62,13 @@
           <a class="dropdown-item" href="/admin" routerLink="admin" *ngIf="showAdminBoard">Admin Board</a>
           <a class="dropdown-item" href="/mod" routerLink="mod" *ngIf="showModeratorBoard">Moderator Board</a>
           <a class="dropdown-item" href="/user" routerLink="user" *ngIf="isLoggedIn">User Board</a>
-          <!--              <div class="dropdown-divider"></div>-->
           <div class="p-2">
             <button type="button" class="btn btn-danger btn-block" (click)="logout()">Logout</button>
           </div>
-          <!--<div class="bg-danger p-2">
-            <a class="dropdown-item text-white" (click)="logout()">Logout</a>
-          </div>-->
+
         </div>
       </li>
-      <!--<li class="nav-item">
-          <a href class="nav-link" (click)="logout()">Logout</a>
-      </li>-->
+
     </ul>
   </nav>
 

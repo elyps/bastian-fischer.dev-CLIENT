@@ -16,13 +16,11 @@ import {TagsComponent} from "./components/tags/tags.component";
 import {CommentComponent} from "./components/comment/comment.component";
 import {ContactComponent} from "./components/contact/contact.component";
 import {CvComponent} from "./components/cv/cv.component";
-import {PinInputComponent} from "./components/pin-input/pin-input.component";
 import {RecruiterComponent} from "./components/recruiter/recruiter.component";
 import {RecruiterDashboardComponent} from "./components/recruiter-dashboard/recruiter-dashboard.component";
 import { CertsComponent } from './components/certs/certs.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'articles', pathMatch: 'full' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },

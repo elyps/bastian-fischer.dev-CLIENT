@@ -1,9 +1,9 @@
 {
-  "name": "client",
+  "name": "bastianfischerdevclient",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "ClientApplication": "ng serve",
+    "Client": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

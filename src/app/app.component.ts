@@ -22,6 +22,7 @@ export class AppComponent {
   currentArticle: any;
 
   darkMode = false;
+  title: string | undefined;
 
   constructor(
       private storageService: StorageService,
