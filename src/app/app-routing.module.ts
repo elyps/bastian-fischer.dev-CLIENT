@@ -19,6 +19,10 @@ import {CvComponent} from "./components/cv/cv.component";
 import {RecruiterComponent} from "./components/recruiter/recruiter.component";
 import {RecruiterDashboardComponent} from "./components/recruiter-dashboard/recruiter-dashboard.component";
 import { CertsComponent } from './components/certs/certs.component';
+import { RepositoriesComponent } from './components/repositories/repositories.component';
+import { ProjectsDetailsComponent } from './components/projects-details/projects-details.component';
+import { ProjectsListComponent } from './components/projects-list/projects-list.component';
+import { RepositoryDetailsComponent } from './components/repository-details/repository-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,7 +34,7 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'articles', component: ArticlesListComponent },
-  { path: 'articles/:id', component: ArticleDetailsComponent },
+  { path: 'articles/:slug', component: ArticleDetailsComponent },
   { path: 'articles/:id/edit', component: EditArticleComponent },
   { path: 'add', component: AddArticleComponent },
   { path: 'about-me', component: AboutMeComponent },
@@ -41,6 +45,10 @@ const routes: Routes = [
   { path: 'recruiter/dashboard', component: RecruiterDashboardComponent },
   { path: 'recruiter/dashboard/cv', component: CvComponent },
   { path: 'recruiter/dashboard/certs', component: CertsComponent },
+  { path: 'repositories', component: RepositoriesComponent },
+  { path: 'repository/:slug', component: RepositoryDetailsComponent },
+  { path: 'projects', component: ProjectsListComponent },
+  { path: 'projects/:slug', component: ProjectsDetailsComponent },
 ];
 
 @NgModule({

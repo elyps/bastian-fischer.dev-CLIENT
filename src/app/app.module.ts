@@ -34,6 +34,14 @@ import { PinInputComponent } from './components/pin-input/pin-input.component';
 import { RecruiterComponent } from './components/recruiter/recruiter.component';
 import { RecruiterDashboardComponent } from './components/recruiter-dashboard/recruiter-dashboard.component';
 import { CertsComponent } from './components/certs/certs.component';
+import { VersionComponent } from './components/version/version.component';
+import { GitInfoComponent } from './components/git-info/git-info.component';
+import { RepositoriesComponent } from './components/repositories/repositories.component';
+import { ProjectsDetailsComponent } from './components/projects-details/projects-details.component';
+import { RepositoryDetailsComponent } from './components/repository-details/repository-details.component';
+import { ImpressComponent } from './components/impress/impress.component';
+import { PrivacyComponent } from './components/privacy/privacy.component';
+import { ProjectsListComponent } from './components/projects-list/projects-list.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +69,15 @@ import { CertsComponent } from './components/certs/certs.component';
     PinInputComponent,
     RecruiterComponent,
     RecruiterDashboardComponent,
-    CertsComponent
+    CertsComponent,
+    VersionComponent,
+    GitInfoComponent,
+    RepositoriesComponent,
+    ProjectsDetailsComponent,
+    RepositoryDetailsComponent,
+    ImpressComponent,
+    PrivacyComponent,
+    ProjectsListComponent
   ],
   imports: [
     BrowserModule,

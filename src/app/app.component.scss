@@ -8,21 +8,7 @@
   left: 0;
   right: 0;
   top: 0;
-  z-index: 100;
-}
-
-.dropdown-menu {
-  background-color: var(--background-color-ui);
-  color: var(--text-color) !important;
-}
-
-.dropdown-item {
-  color: var(--text-color) !important;
-}
-
-.dropdown-item:hover {
-  background-color: var(--background-color);
-  color: var(--text-color) !important;
+  z-index: 9000;
 }
 
 #app {
@@ -41,7 +27,6 @@ app-footer {
   position: relative;
   bottom: 0;
   background-color: var(--background-color-ui); /* Adjust the background color as needed */
-  padding: 20px; /* Adjust the padding as needed */
-  border-top: 1px solid var(--prime); /* Add a border at the top of the footer if desired */
+  padding: 20px; /* Adjust the padding as needed */ /* Add a border at the top of the footer if desired */
   color: var(--text-color);
 }

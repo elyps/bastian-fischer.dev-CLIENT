@@ -15,5 +15,8 @@
 
 li.list-group-item {
   border: none !important;
+  border-top: 2px solid var(--prime) !important;
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
   cursor: pointer;
 }

@@ -30,10 +30,10 @@
         </ul>
         <ul class="d-flex list-unstyled">
           <li class="mr-2">
-            <a href="/recruiter" routerLink="recruiter">Recruiter</a>
+            <a href="/recruiter" routerLink="recruiter">Recruiter Portal</a>
           </li>
           <li class="mr-2">
-            <a href="/customer" routerLink="recruiter">Customer</a>
+            <a href="/customer" routerLink="recruiter">Customer Portal</a>
           </li>
         </ul>
       </div>
@@ -42,10 +42,17 @@
 </footer>
 
 <div class="d-flex flex-column justify-content-center mx-auto p-3 bg-prime text-center text-white">
-  <span><a href="privacy" class="text-white">Privacy</a>&emsp;&emsp;•&emsp;&emsp;<a href="impress"
-      class="text-white">Impress</a></span>
+  <span>
+    <a href="privacy" class="text-white">Privacy</a>
+    &emsp;&emsp;•&emsp;&emsp;
+    <a href="impress" class="text-white">Impress</a>
+  </span>
   <span class="mt-2"><small>Made with Java, Spring Boot und Angular.</small></span>
-  <span class="text-white-50 mt-2"><small>Copyright 2023 - Bastian Fischer.</small></span>
-  <span class="font-weight-bold text-white-50"><small>APP v1.0.0 Build 23927</small>&ensp; • &ensp;<small>API v1.0.0
-      Build 23927</small></span>
+  <span class="text-white-50 mt-2"><small>Copyright {{ year }} - Bastian Fischer.</small></span>
 </div>
+
+<span class="d-flex flex-row justify-content-between text-muted mt-2" style="font-size: small;">
+  <small>APP v{{ appVersion}} Build <app-version></app-version></small>
+  <small>COMMIT <app-git-info></app-git-info></small>
+  <small>API v{{ apiVersion }} Build <app-version></app-version></small>
+</span>

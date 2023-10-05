@@ -15,10 +15,9 @@ import {Comment} from "../../models/comment.model";
 @Component({
   selector: 'app-article-details',
   templateUrl: './article-details.component.html',
-  styleUrls: ['./article-details.component.scss']
+  styleUrls: ['./article-details.component.scss'],
 })
 export class ArticleDetailsComponent implements OnInit {
-
   // @Input() viewMode = false;
 
   /*@Input() currentArticle: Article = {
@@ -52,8 +51,8 @@ export class ArticleDetailsComponent implements OnInit {
     likes: [],
     dislikes: [],
     views: 0,
-    meta: {}
-  }
+    meta: {},
+  };
 
   message = '';
   private roles: string[] = [];
@@ -68,7 +67,7 @@ export class ArticleDetailsComponent implements OnInit {
   comments: Comment[] = [];
   getComments: any;
   // addComment: any;
-  newCommentText: string = "";
+  newCommentText: string = '';
   commentAuthor: any;
   private eventBusService: any;
   content: any;
@@ -84,13 +83,13 @@ export class ArticleDetailsComponent implements OnInit {
     private authService: AuthService,
     private eventBus: EventBusService,
     private http: HttpClient,
-    private router: Router) {
-  }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    if (this.route.snapshot.params['id'] !== undefined) {
+    if (this.route.snapshot.params['slug'] !== undefined) {
       this.message = '';
-      this.getArticle(this.route.snapshot.params['id']);
+      this.getArticle(this.route.snapshot.params['slug']);
     } else {
       this.message = '400 - No article selected. Please select an article.';
     }
@@ -102,8 +101,12 @@ export class ArticleDetailsComponent implements OnInit {
       this.roles = user.roles;
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR') || this.roles.includes('ROLE_ADMIN');
-      this.showActions = this.roles.includes('ROLE_MODERATOR') || this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard =
+        this.roles.includes('ROLE_MODERATOR') ||
+        this.roles.includes('ROLE_ADMIN');
+      this.showActions =
+        this.roles.includes('ROLE_MODERATOR') ||
+        this.roles.includes('ROLE_ADMIN');
 
       this.username = user.username;
     }
@@ -112,7 +115,7 @@ export class ArticleDetailsComponent implements OnInit {
       this.logout();
     });*/
 
-    this.loadTags();
+    // this.loadTags();
 
     /* // Holen Sie die Artikel-ID aus den Routenparametern
      const articleId = this.route.snapshot.params['id'];
@@ -134,61 +137,76 @@ export class ArticleDetailsComponent implements OnInit {
        console.error('No article ID was provided.');
        this.errorMessage = 'No article ID was provided.';
      }*/
-
   }
 
-  getArticle(id: string): void {
-
-    this.articleService.get(id)
-      .subscribe({
-        next: (data) => {
-          this.currentArticle = data;
-          // this.viewMode = true;
-          console.log(data);
-        },
-        error: (e) => console.error(e)
-      });
+  // find article id by article slug
+  getArticleIdBySlug(slug: string): void {
+    this.articleService.getArticleIdBySlug(slug).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.getComments(data);
+        console.log('getArticle() called', data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
-  loadTags(): void {
-    this.tagService.getAllTags()
-      .subscribe(tags => {
-        this.tags = tags;
-      });
+  // find article by article slug
+  getArticle(slug: string): void {
+    console.log('getArticle() called', slug);
+
+    this.articleService.getArticleBySlug(slug).subscribe({
+      next: (data) => {
+        console.log(data);
+        console.log(data.id);
+        this.currentArticle = data;
+        // this.getComments(data.id);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
+
+/*   loadTags(): void {
+    this.tagService.getAllTags().subscribe((tags) => {
+      this.tags = tags;
+    });
+  } */
 
   logout(): void {
     this.storageService.clean();
     this.authService.logout().subscribe({
-      next: res => {
+      next: (res) => {
         console.log(res);
         // window.location.reload();
         window.location.href = '/';
       },
-      error: err => {
+      error: (err) => {
         console.log(err);
-      }
+      },
     });
   }
 
   deleteArticle(): void {
-    this.articleService.delete(this.currentArticle.id)
-      .subscribe({
-        next: () => {
-          this.router.navigate(['/articles']);
-        },
-        error: (e) => console.error(e)
-      });
+    this.articleService.delete(this.currentArticle.id).subscribe({
+      next: () => {
+        this.router.navigate(['/articles']);
+      },
+      error: (e) => console.error(e),
+    });
   }
 
-    updateArticle(): void {
-    this.articleService.update(this.currentArticle.id, this.currentArticle)
+  updateArticle(): void {
+    this.articleService
+      .update(this.currentArticle.id, this.currentArticle)
       .subscribe({
         next: () => {
           this.router.navigate(['/articles']);
         },
-        error: (e) => console.error(e)
+        error: (e) => console.error(e),
       });
-    }
-
+  }
 }

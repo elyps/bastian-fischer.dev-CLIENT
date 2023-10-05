@@ -10,6 +10,14 @@ const baseUrl = 'http://localhost:8083/api/v1/articles';
 })
 export class ArticleService {
 
+  getArticleIdBySlug(slug: string) {
+    return this.http.get<number>(`${baseUrl}/id/${slug}`);
+  }
+
+  getArticleBySlug(slug: string) {
+    return this.http.get<Article>(`${baseUrl}/slug/${slug}`);
+  }
+
   constructor(private http: HttpClient) { }
 
   /*getAll(): Observable<Article[]> {

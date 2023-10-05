@@ -1,3 +1,7 @@
 .text-purple {
-  color: rgb(162, 125, 217);
+  color: var(--prime);
+}
+
+.text-muted {
+  color: var(--text-color-muted);
 }

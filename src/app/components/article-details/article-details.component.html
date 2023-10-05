@@ -14,23 +14,23 @@
             </div>
           </div>
 
-          <hr class="border-prime">
+          <!-- <hr class="border-prime"> -->
 
           <div class="  border-radius-2 p-1 mt-2">
             <div class="-body border-radius-2">
-              <div class="d-flex flex-row justify-content-around">
-                <label><small>Written by: <strong
+              <div class="d-flex flex-row justify-content-start">
+                <label class="mr-4"><small>Written by: <strong
                   class="btn-prime-ghost">{{ currentArticle.author }}</strong></small></label><br>
-                <label><small>Updated at: <strong
+                <label><small>Updated on: <strong
                   class="btn-prime-ghost">{{ currentArticle.updatedAt }}</strong></small></label>
                 <!--          <label><strong>&lt;!&ndash;Created: {{ currentArticle.createdAt }} - &ndash;&gt;Updated: {{ currentArticle.updatedAt }}</strong></label>-->
               </div>
             </div>
           </div>
 
-          <hr class="border-prime">
+          <!-- <hr class="border-prime"> -->
 
-          <div class="  border-radius-2 p-1 mt-2">
+          <div class="  border-radius-2 p-1 mt-5">
             <div class="-body  border-radius-2">
               <h5>{{ currentArticle.description }}</h5>
             </div>
@@ -47,11 +47,11 @@
             {{ currentArticle.category }}
           </div>-->
 
-          <div class="d-flex flex-row position-relative mx-auto my-5">
+          <!-- <div class="d-flex flex-row position-relative mx-auto my-5">
           <span *ngFor="let tag of tags">
             <a href="" class="badge badge-warning p-2 m-1">{{ tag.name }}</a>
           </span>
-          </div>
+          </div> -->
 
           <!--        <app-tags></app-tags>-->
           <!--<div>
@@ -67,10 +67,7 @@
               {{ currentArticle.published }}
           </div>
           -->
-          <div *ngIf="isLoggedIn" class="mt-4 d-flex flex-row justify-content-end">
-            <label><strong>Status:</strong></label>
-            <span class="btn-prime-ghost">&ensp;{{ currentArticle.published ? "Published" : "Pending" }}</span>
-          </div>
+
 
           <!--<div *ngIf="isLoggedIn">
             <label><strong>Published:</strong></label>
@@ -82,13 +79,19 @@
           </div>-->
         </div>
 
-        <div class="mt-2 d-flex flex-row justify-content-end" *ngIf="isLoggedIn">
+        <div class="card p-4 article-control-panel mt-3 d-flex flex-row justify-content-between" *ngIf="isLoggedIn">
           <a
             class="btn btn-prime"
             routerLink="/articles/{{ currentArticle.id }}/edit"
           >
             Edit Article
           </a>
+
+          <div *ngIf="isLoggedIn" class="mt-4 d-flex flex-row justify-content-end">
+            <label><strong>Status:</strong></label>
+            <span class="btn-prime-ghost">&ensp;{{ currentArticle.published ? "Published" : "Draft / Pending ..." }}</span>
+          </div>
+
           <a
             class="btn btn-danger"
             (click)="deleteArticle()"

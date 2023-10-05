@@ -13,8 +13,8 @@
           </div>
         </div>
         <div class="d-flex flex-row justify-content-between">
-          <button class="btn btn-primary" (click)="nextSlide()">Next</button>
-          <button class="btn btn-secondary" (click)="clearNameInput()">Clear Name</button>
+          <button class="btn btn-prime" (click)="nextSlide()">Next</button>
+          <button class="btn btn-warning" (click)="clearNameInput()">Clear Name</button>
         </div>
       </form>
     </div>
@@ -31,9 +31,9 @@
           </div>
         </div>
         <div class="d-flex flex-row justify-content-between">
-          <button class="btn btn-primary" (click)="prevSlide()">Previous</button>
-          <button class="btn btn-primary" (click)="nextSlide()">Next</button>
-          <button class="btn btn-secondary float-right" (click)="clearEmailInput()">Clear Email</button>
+          <button class="btn btn-prime" (click)="prevSlide()">Previous</button>
+          <button class="btn btn-prime" (click)="nextSlide()">Next</button>
+          <button class="btn btn-warning float-right" (click)="clearEmailInput()">Clear Email</button>
         </div>
       </form>
     </div>
@@ -47,9 +47,11 @@
           </div>
         </div>
         <div class="d-flex flex-row justify-content-between">
-          <button class="btn btn-primary" (click)="prevSlide()">Previous</button>
-          <button class="btn btn-secondary" (click)="clearTextarea()">Clear Text</button>
-          <button class="btn btn-secondary" (click)="clearForm()">Clear All Fields</button>
+          <button class="btn btn-prime" (click)="prevSlide()">Previous</button>
+          <div class="btn-group">
+            <button class="btn btn-warning" (click)="clearTextarea()">Clear Text</button>
+            <button class="btn btn-danger" (click)="clearForm()">Abbrechen</button>
+          </div>
           <button class="btn btn-success">Send Message</button>
         </div>
       </form>
