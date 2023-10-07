@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { StorageService } from './services/storage.service';
 import { AuthService } from './services/auth.service';
 import { EventBusService } from './shared/event-bus.service';
 import {ThemeService} from "./services/theme.service";
 
+declare var $: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
@@ -41,7 +43,6 @@ export class AppComponent {
       document.body.classList.remove('dark-mode');
     }
 
-
     this.isLoggedIn = this.storageService.isLoggedIn();
 
     if (this.isLoggedIn) {
@@ -49,8 +50,12 @@ export class AppComponent {
       this.roles = user.roles;
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR') || this.roles.includes('ROLE_ADMIN');
-      this.showActions = this.roles.includes('ROLE_MODERATOR') || this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard =
+        this.roles.includes('ROLE_MODERATOR') ||
+        this.roles.includes('ROLE_ADMIN');
+      this.showActions =
+        this.roles.includes('ROLE_MODERATOR') ||
+        this.roles.includes('ROLE_ADMIN');
 
       this.username = user.username;
     }
@@ -58,6 +63,22 @@ export class AppComponent {
     this.eventBusSub = this.eventBusService.on('logout', () => {
       this.logout();
     });
+
+    // Schritt 3: Daten aus dem LocalStorage abrufen
+    const cookieData = localStorage.getItem('cookies');
+    // Schritt 3: Daten aus dem LocalStorage abrufen
+    // const gespeicherteDaten = JSON.parse(localStorage.getItem('benutzerDaten'));
+
+    // Schritt 4: Daten verwenden
+    // console.log(
+    //   `Name: ${gespeicherteDaten.name}, Alter: ${gespeicherteDaten.alter}`
+    // );
+
+    if (!cookieData) {
+      console.log(`Cookies: ${cookieData}`);
+      $('.modal').modal('show');
+    }
+
   }
 
   logout(): void {

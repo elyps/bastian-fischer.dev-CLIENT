@@ -42,6 +42,7 @@ import { RepositoryDetailsComponent } from './components/repository-details/repo
 import { ImpressComponent } from './components/impress/impress.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { ProjectsListComponent } from './components/projects-list/projects-list.component';
+import { CookiePopupComponent } from './components/cookie-popup/cookie-popup.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { ProjectsListComponent } from './components/projects-list/projects-list.
     RepositoryDetailsComponent,
     ImpressComponent,
     PrivacyComponent,
-    ProjectsListComponent
+    ProjectsListComponent,
+    CookiePopupComponent
   ],
   imports: [
     BrowserModule,

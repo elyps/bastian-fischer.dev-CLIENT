@@ -23,9 +23,12 @@ import { RepositoriesComponent } from './components/repositories/repositories.co
 import { ProjectsDetailsComponent } from './components/projects-details/projects-details.component';
 import { ProjectsListComponent } from './components/projects-list/projects-list.component';
 import { RepositoryDetailsComponent } from './components/repository-details/repository-details.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'error', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -53,6 +56,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
