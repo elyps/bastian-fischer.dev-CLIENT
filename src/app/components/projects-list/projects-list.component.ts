@@ -15,8 +15,8 @@ export class ProjectsListComponent {
 
   page = 1;
   count = 0;
-  pageSize = 5;
-  pageSizes = [5, 10];
+  pageSize = 6;
+  pageSizes = [6, 12, 18, 24];
   private router: any;
 
   constructor(private projectService: ProjectService) {}

@@ -9,14 +9,14 @@
       <form [formGroup]="form">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter your name" formControlName="name">
+          <input type="text" class="form-control" id="name" placeholder="Bitte geben Sie ihren Namen ein .." formControlName="name">
           <div *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched" class="text-danger">
-            Name is required.
+            Name ist ein Pflichtfeld.
           </div>
         </div>
         <div class="d-flex flex-row justify-content-between">
-          <button class="btn btn-prime" (click)="nextSlide()">Next</button>
-          <button class="btn btn-warning" (click)="clearNameInput()">Clear Name</button>
+          <button class="btn btn-prime" (click)="nextSlide()">Weiter</button>
+          <button class="btn btn-warning" (click)="clearNameInput()">Textfeld Name leeren</button>
         </div>
       </form>
     </div>
@@ -24,37 +24,39 @@
       <form [formGroup]="form">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter your email" formControlName="email">
+          <input type="email" class="form-control" id="email" placeholder="Bitte geben Sie ihre Email Adresse ein .." formControlName="email">
           <div *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched" class="text-danger">
-            Email is required.
+            Email ist ein Pflichtfeld.
           </div>
           <div *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched" class="text-danger">
-            Please enter a valid email address.
+            Bitte geben sie eine gültige Email-Adresse ein.
           </div>
         </div>
         <div class="d-flex flex-row justify-content-between">
-          <button class="btn btn-prime" (click)="prevSlide()">Previous</button>
-          <button class="btn btn-prime" (click)="nextSlide()">Next</button>
-          <button class="btn btn-warning float-right" (click)="clearEmailInput()">Clear Email</button>
+          <div class="btn-group">
+            <button class="btn btn-prime" (click)="prevSlide()" style="opacity: 0.8;">Zurück</button>
+            <button class="btn btn-prime" (click)="nextSlide()">Weiter</button>
+          </div>
+          <button class="btn btn-warning float-right" (click)="clearEmailInput()">Textfeld Email leeren</button>
         </div>
       </form>
     </div>
     <div class="slide" [class.active]="activeSlideIndex === 2">
       <form [formGroup]="form">
         <div class="form-group">
-          <label for="message">Message</label>
-          <textarea class="form-control" id="message" rows="4" placeholder="Enter your message" formControlName="message" style="resize: none"></textarea>
+          <label for="message">Nachricht</label>
+          <textarea class="form-control" id="message" rows="4" placeholder="Bitte geben Sie ihre Nachricht ein .." formControlName="message" style="resize: none"></textarea>
           <div *ngIf="form.get('message')?.hasError('required') && form.get('message')?.touched" class="text-danger">
-            Message is required.
+            Nachricht ist ein Pflichtfeld.
           </div>
         </div>
         <div class="d-flex flex-row justify-content-between">
-          <button class="btn btn-prime" (click)="prevSlide()">Previous</button>
+          <button class="btn btn-prime" (click)="prevSlide()">Zurück</button>
           <div class="btn-group">
-            <button class="btn btn-warning" (click)="clearTextarea()">Clear Text</button>
-            <button class="btn btn-danger" (click)="clearForm()">Abbrechen</button>
+            <button class="btn btn-warning" (click)="clearTextarea()">Textfeld Nachricht leeren</button>
+            <button class="btn btn-danger" (click)="clearForm()">Alle Felder leeren</button>
           </div>
-          <button class="btn btn-success">Send Message</button>
+          <button class="btn btn-success">Nachricht absenden</button>
         </div>
       </form>
     </div>

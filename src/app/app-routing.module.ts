@@ -24,11 +24,12 @@ import { ProjectsDetailsComponent } from './components/projects-details/projects
 import { ProjectsListComponent } from './components/projects-list/projects-list.component';
 import { RepositoryDetailsComponent } from './components/repository-details/repository-details.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { CustomerPortalComponent } from './components/customer-portal/customer-portal.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'error', redirectTo: 'home', pathMatch: 'full' },
+  // { path: 'error', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -52,6 +53,8 @@ const routes: Routes = [
   { path: 'repository/:slug', component: RepositoryDetailsComponent },
   { path: 'projects', component: ProjectsListComponent },
   { path: 'projects/:slug', component: ProjectsDetailsComponent },
+  { path: 'customer-portal', component: CustomerPortalComponent },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({
