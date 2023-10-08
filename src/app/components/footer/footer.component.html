@@ -1,3 +1,4 @@
+<app-cookie-settings-modal></app-cookie-settings-modal>
 <footer class="py-4 footer">
   <div class="container">
     <div class="row">
@@ -15,7 +16,6 @@
         <address class="text-muted">
           <strong>Bastian Fischer</strong><br>
           Kiel, Schleswig-Holstein<br>
-          <!-- <abbr title="Telefon">Tel:</abbr> auf Anfrage.<br> -->
           <abbr title="Email">Email:</abbr> kontakt(at)bastian-fischer(dot)dev
         </address>
       </div>
@@ -43,9 +43,9 @@
 
 <div class="d-flex flex-column justify-content-center mx-auto p-3 bg-prime text-center text-white">
   <span>
-    <a href="privacy" class="text-white">Datenschutz</a>
+    <a href="/privacy" routerLink="/privacy" class="text-white">Datenschutz</a>
     &emsp;&emsp;•&emsp;&emsp;
-    <a href="impress" class="text-white">Impressum</a>
+    <a href="/impress" routerLink="/impress" class="text-white">Impressum</a>
   </span>
   <span class="mt-2"><small>Entwickelt mit Java, Spring Boot und Angular.</small></span>
   <span class="text-white-50 mt-2"><small>Copyright {{ year }} - Bastian Fischer.</small></span>

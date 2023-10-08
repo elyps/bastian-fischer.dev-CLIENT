@@ -1,14 +1,7 @@
 // cookie-popup.component.ts
 import { Component } from '@angular/core';
 
-declare var $: any;
-
-/*   declare const $: {
-    (selector: string): any;
-    modal: {
-      (action: string): any;
-    };
-  }; */
+declare let $: any;
 
 @Component({
   selector: 'app-cookie-popup',
@@ -16,14 +9,14 @@ declare var $: any;
   styleUrls: ['./cookie-popup.component.scss'],
 })
 export class CookiePopupComponent {
+
+  toggleStatus: boolean = false;
+
   acceptCookies() {
-    // const cookieData = {
-    //   cookies: true,
-    // };
-
-    // localStorage.setItem('cookies', JSON.stringify(cookieData));
-    localStorage.setItem('cookies', 'true');
-
-    $('.modal').modal('hide');
+    // this.cookieService.set('cookies', 'true');
+    localStorage.setItem('must-have-cookies', 'true');
+    localStorage.setItem('marketing-cookies', 'true');
+    localStorage.setItem('analytics-cookies', 'true');
+    $('.cookie-modal').modal('hide');
   }
 }
