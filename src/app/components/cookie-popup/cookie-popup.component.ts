@@ -10,13 +10,13 @@ declare let $: any;
 })
 export class CookiePopupComponent {
 
-  toggleStatus: boolean = false;
-
   acceptCookies() {
-    // this.cookieService.set('cookies', 'true');
     localStorage.setItem('must-have-cookies', 'true');
     localStorage.setItem('marketing-cookies', 'true');
     localStorage.setItem('analytics-cookies', 'true');
+
+    window.location.reload();
+
     $('.cookie-modal').modal('hide');
   }
 }
